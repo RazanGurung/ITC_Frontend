@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app:*)",
+      "Bash(where:*)",
+      "Bash(where npm:*)",
+      "Bash(\"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" install next@latest react@latest react-dom@latest axios)",
+      "Bash(\"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" install tailwindcss@3 --save-dev)",
+      "Bash(\"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" run build)",
+      "Bash(git init:*)"
+    ]
+  }
+}
