@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Button, Input, Textarea, Alert } from '@/components/ui';
 import { contactApi } from '@/lib/api';
+import { useTranslation } from '@/context';
 import type { ContactFormData } from '@/types';
 import { isValidEmail } from '@/lib/utils';
 
@@ -11,6 +12,7 @@ import { isValidEmail } from '@/lib/utils';
 // ============================================
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -26,23 +28,23 @@ export default function ContactPage() {
     const newErrors: Partial<ContactFormData> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = t.contact.validation.nameRequired;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t.contact.validation.emailRequired;
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = t.contact.validation.emailInvalid;
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
+      newErrors.subject = t.contact.validation.subjectRequired;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = t.contact.validation.messageRequired;
     } else if (formData.message.length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = t.contact.validation.messageMinLength;
     }
 
     setErrors(newErrors);
@@ -92,11 +94,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
-              Get In Touch
+              {t.contact.title}
             </h1>
             <p className="text-xl text-gray-600">
-              Have questions or want to get involved? We&apos;d love to hear from you.
-              Reach out and let&apos;s connect.
+              {t.contact.subtitle}
             </p>
           </div>
         </div>
@@ -109,7 +110,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">
-                Contact Information
+                {t.contact.info.title}
               </h2>
 
               <div className="space-y-6">
@@ -121,7 +122,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Address</h3>
+                    <h3 className="font-semibold text-gray-900">{t.contact.info.address}</h3>
                     <p className="text-gray-600 mt-1">
                       123 Community Center Drive<br />
                       College Station, TX 77840
@@ -136,7 +137,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
+                    <h3 className="font-semibold text-gray-900">{t.contact.info.email}</h3>
                     <a
                       href="mailto:info@itc.org"
                       className="text-primary-600 hover:text-primary-700 mt-1 block"
@@ -153,7 +154,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
+                    <h3 className="font-semibold text-gray-900">{t.contact.info.phone}</h3>
                     <a
                       href="tel:+1234567890"
                       className="text-primary-600 hover:text-primary-700 mt-1 block"
@@ -170,11 +171,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Office Hours</h3>
-                    <p className="text-gray-600 mt-1">
-                      Monday - Friday: 9am - 5pm<br />
-                      Saturday: 10am - 2pm<br />
-                      Sunday: Closed
+                    <h3 className="font-semibold text-gray-900">{t.contact.info.hours}</h3>
+                    <p className="text-gray-600 mt-1 whitespace-pre-line">
+                      {t.contact.info.hoursDetail}
                     </p>
                   </div>
                 </div>
@@ -185,73 +184,73 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="bg-gray-50 rounded-xl p-6 md:p-8">
                 <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">
-                  Send Us a Message
+                  {t.contact.form.title}
                 </h2>
 
                 {submitStatus === 'success' && (
                   <Alert variant="success" className="mb-6">
-                    Thank you for your message! We&apos;ll get back to you soon.
+                    {t.contact.form.success}
                   </Alert>
                 )}
 
                 {submitStatus === 'error' && (
                   <Alert variant="error" className="mb-6">
-                    Something went wrong. Please try again later.
+                    {t.contact.form.error}
                   </Alert>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input
-                      label="Full Name"
+                      label={t.contact.form.name}
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       error={errors.name}
                       required
-                      placeholder="John Doe"
+                      placeholder={t.contact.form.namePlaceholder}
                     />
                     <Input
-                      label="Email Address"
+                      label={t.contact.form.email}
                       name="email"
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
                       error={errors.email}
                       required
-                      placeholder="john@example.com"
+                      placeholder={t.contact.form.emailPlaceholder}
                     />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input
-                      label="Phone Number"
+                      label={t.contact.form.phone}
                       name="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(123) 456-7890"
-                      hint="Optional"
+                      placeholder={t.contact.form.phonePlaceholder}
+                      hint={t.contact.form.optional}
                     />
                     <Input
-                      label="Subject"
+                      label={t.contact.form.subject}
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       error={errors.subject}
                       required
-                      placeholder="How can we help?"
+                      placeholder={t.contact.form.subjectPlaceholder}
                     />
                   </div>
 
                   <Textarea
-                    label="Message"
+                    label={t.contact.form.message}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     error={errors.message}
                     required
-                    placeholder="Tell us more about your inquiry..."
+                    placeholder={t.contact.form.messagePlaceholder}
                     rows={6}
                   />
 
@@ -261,7 +260,7 @@ export default function ContactPage() {
                     isLoading={isSubmitting}
                     disabled={isSubmitting}
                   >
-                    Send Message
+                    {t.contact.form.submit}
                   </Button>
                 </form>
               </div>

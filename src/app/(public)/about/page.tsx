@@ -1,16 +1,8 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui';
-
-// ============================================
-// Metadata
-// ============================================
-
-export const metadata: Metadata = {
-  title: 'About Us',
-  description:
-    'Learn about International TAMU Corporation, our mission, history, and the team dedicated to building cultural bridges.',
-};
+import { useTranslation } from '@/context';
 
 // ============================================
 // Team Member Component
@@ -50,6 +42,8 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
 // ============================================
 
 export default function AboutPage() {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Hero Section */}
@@ -57,11 +51,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
-              About International TAMU Corporation
+              {t.about.title}
             </h1>
             <p className="text-xl text-gray-600">
-              For over 25 years, we have been dedicated to building bridges across cultures,
-              fostering community spirit, and preserving heritage for future generations.
+              {t.about.subtitle}
             </p>
           </div>
         </div>
@@ -73,49 +66,28 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
-                Our Mission
+                {t.about.mission.title}
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                International TAMU Corporation is committed to creating a vibrant community
-                that celebrates diversity, preserves tradition, and builds bridges across
-                cultures. We believe that through cultural exchange and community engagement,
-                we can create a more understanding and connected world.
+                {t.about.mission.content}
               </p>
               <p className="text-lg text-gray-600">
-                Our programs and events are designed to bring people together, promote
-                cultural awareness, and provide opportunities for personal growth and
-                community development.
+                {t.about.mission.content2}
               </p>
             </div>
             <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 lg:p-12">
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-6">
-                Our Vision
+                {t.about.vision.title}
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700">A world where cultural diversity is celebrated and embraced</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700">Strong communities built on mutual respect and understanding</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700">Empowered youth who carry forward cultural traditions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700">Lasting positive impact in communities worldwide</span>
-                </li>
+                {t.about.vision.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -127,10 +99,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
-              Our History
+              {t.about.history.title}
             </h2>
             <p className="text-lg text-gray-600">
-              A journey of cultural celebration and community building.
+              {t.about.history.subtitle}
             </p>
           </div>
 
@@ -167,10 +139,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
-              Our Leadership Team
+              {t.about.team.title}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Dedicated individuals committed to our mission and community.
+              {t.about.team.subtitle}
             </p>
           </div>
 
@@ -186,20 +158,20 @@ export default function AboutPage() {
       <section className="py-16 bg-gradient-to-r from-primary-600 to-secondary-700">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
-            Join Our Community
+            {t.about.cta.title}
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
-            Be part of something meaningful. Get involved with ITC today.
+            {t.about.cta.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-100">
-                Get In Touch
+                {t.home.cta.contact}
               </Button>
             </Link>
             <Link href="/donate">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Support Us
+                {t.home.cta.support}
               </Button>
             </Link>
           </div>

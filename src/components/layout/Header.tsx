@@ -5,19 +5,50 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui';
+import { useTranslation } from '@/context';
+import type { Language } from '@/lib/translations';
 
 // ============================================
-// Navigation Items
+// Language Toggle Component
 // ============================================
 
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Events', href: '/events' },
-  { label: 'News', href: '/news' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/contact' },
-];
+function LanguageToggle() {
+  const { language, setLanguage, t } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang: Language = language === 'en' ? 'ne' : 'en';
+    setLanguage(newLang);
+  };
+
+  return (
+    <button
+      onClick={toggleLanguage}
+      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+      aria-label={`${t.language.switchTo} ${language === 'en' ? t.language.ne : t.language.en}`}
+    >
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+        />
+      </svg>
+      <span className="hidden sm:inline">
+        {language === 'en' ? 'नेपाली' : 'English'}
+      </span>
+      <span className="sm:hidden">
+        {language === 'en' ? 'ने' : 'EN'}
+      </span>
+    </button>
+  );
+}
 
 // ============================================
 // Header Component
@@ -26,6 +57,17 @@ const navItems = [
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
+
+  // Navigation items with translations
+  const navItems = [
+    { label: t.nav.home, href: '/' },
+    { label: t.nav.about, href: '/about' },
+    { label: t.nav.events, href: '/events' },
+    { label: t.nav.news, href: '/news' },
+    { label: t.nav.gallery, href: '/gallery' },
+    { label: t.nav.contact, href: '/contact' },
+  ];
 
   const isActiveLink = (href: string) => {
     if (href === '/') return pathname === '/';
@@ -38,9 +80,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary-500 to-secondary-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg md:text-xl">ITC</span>
-            </div>
+            <img
+              src="/images/logos/logo.png"
+              alt="ITC Logo"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            />
             <div className="hidden sm:block">
               <h1 className="font-heading font-bold text-lg text-gray-900">
                 International TAMU
@@ -67,47 +111,51 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Right Side: Language Toggle & CTA */}
+          <div className="hidden md:flex items-center gap-2">
+            <LanguageToggle />
             <Link href="/donate">
               <Button variant="primary" size="sm">
-                Donate Now
+                {t.nav.donate}
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
-            aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+          {/* Mobile: Language Toggle & Menu Button */}
+          <div className="flex lg:hidden items-center gap-2">
+            <LanguageToggle />
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -137,7 +185,7 @@ export function Header() {
                   className="block"
                 >
                   <Button variant="primary" fullWidth>
-                    Donate Now
+                    {t.nav.donate}
                   </Button>
                 </Link>
               </li>

@@ -11,6 +11,30 @@
   :root {
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-heading: 'Playfair Display', Georgia, serif;
+    --font-nepali: 'Noto Sans Devanagari', sans-serif;
+  }
+
+  /* Nepali font support */
+  html.font-nepali {
+    font-family: var(--font-nepali), var(--font-sans);
+  }
+
+  html.font-nepali body,
+  html.font-nepali p,
+  html.font-nepali span,
+  html.font-nepali div,
+  html.font-nepali li,
+  html.font-nepali a {
+    font-family: var(--font-nepali), var(--font-sans);
+  }
+
+  html.font-nepali h1,
+  html.font-nepali h2,
+  html.font-nepali h3,
+  html.font-nepali h4,
+  html.font-nepali h5,
+  html.font-nepali h6 {
+    font-family: var(--font-nepali), var(--font-heading);
   }
 
   /* Smooth scrolling */

@@ -1,30 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import type { ReactElement } from 'react';
-
-// ============================================
-// Footer Links
-// ============================================
-
-const quickLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Events', href: '/events' },
-  { label: 'News', href: '/news' },
-  { label: 'Gallery', href: '/gallery' },
-];
-
-const supportLinks = [
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'Donate', href: '/donate' },
-  { label: 'Volunteer', href: '/contact' },
-  { label: 'Membership', href: '/about' },
-];
-
-const socialLinks = [
-  { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
-  { label: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
-  { label: 'YouTube', href: 'https://youtube.com', icon: 'youtube' },
-];
+import { useTranslation } from '@/context';
 
 // ============================================
 // Social Icon Component
@@ -63,6 +41,29 @@ function SocialIcon({ name }: { name: string }) {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
+
+  // Navigation items with translations
+  const quickLinks = [
+    { label: t.nav.about, href: '/about' },
+    { label: t.nav.events, href: '/events' },
+    { label: t.nav.news, href: '/news' },
+    { label: t.nav.gallery, href: '/gallery' },
+  ];
+
+  const supportLinks = [
+    { label: t.nav.contact, href: '/contact' },
+    { label: t.nav.donate, href: '/donate' },
+    { label: t.footer.volunteer, href: '/contact' },
+    { label: t.footer.membership, href: '/about' },
+  ];
+
+  const socialLinks = [
+    { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
+    { label: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
+    { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+    { label: 'YouTube', href: 'https://youtube.com', icon: 'youtube' },
+  ];
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -72,9 +73,11 @@ export function Footer() {
           {/* Organization Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ITC</span>
-              </div>
+              <img
+                src="/images/logos/logo.png"
+                alt="ITC Logo"
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h2 className="font-heading font-bold text-lg text-white">
                   International TAMU
@@ -83,8 +86,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-gray-400 mb-6">
-              Building bridges across cultures, fostering community spirit, and preserving heritage
-              for future generations.
+              {t.footer.description}
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -105,7 +107,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-4">{t.footer.quickLinks}</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -122,7 +124,7 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Get Involved</h3>
+            <h3 className="font-semibold text-white mb-4">{t.footer.getInvolved}</h3>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.href + link.label}>
@@ -139,7 +141,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-white mb-4">{t.footer.contactUs}</h3>
             <address className="not-italic space-y-3 text-sm text-gray-400">
               <p className="flex items-start gap-3">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,13 +178,13 @@ export function Footer() {
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>&copy; {currentYear} International TAMU Corporation. All rights reserved.</p>
+            <p>{t.footer.copyright.replace('{year}', currentYear.toString())}</p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-gray-300 transition-colors">
-                Privacy Policy
+                {t.footer.privacyPolicy}
               </Link>
               <Link href="/terms" className="hover:text-gray-300 transition-colors">
-                Terms of Service
+                {t.footer.termsOfService}
               </Link>
             </div>
           </div>

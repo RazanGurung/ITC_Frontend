@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Noto_Sans_Devanagari } from 'next/font/google';
+import { Providers } from './providers';
 import './globals.css';
 
 // ============================================
@@ -16,6 +17,13 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-heading',
+});
+
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  subsets: ['devanagari'],
+  display: 'swap',
+  variable: '--font-nepali',
+  weight: ['400', '500', '600', '700'],
 });
 
 // ============================================
@@ -94,9 +102,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${notoSansDevanagari.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-white font-sans">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
