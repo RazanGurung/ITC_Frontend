@@ -32,45 +32,46 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 
 export const metadata: Metadata = {
   title: {
-    default: 'International TAMU Corporation | Building Cultural Bridges',
+    default: 'International Tamu (Gurung) Council | Unity, Identity and Prosperity',
     template: '%s | ITC',
   },
   description:
-    'International TAMU Corporation (ITC) is a nonprofit organization dedicated to building bridges across cultures, fostering community spirit, and preserving heritage for future generations.',
+    'The International Tamu (Gurung) Council (ITC) is a non-profit, non-political international umbrella organization bringing together Tamu (Gurung) communities, associations, organizations, and individuals from different parts of the world.',
   keywords: [
     'ITC',
-    'International TAMU Corporation',
-    'nonprofit',
-    'cultural organization',
-    'community',
+    'International Tamu (Gurung) Council',
+    'Tamu',
+    'Gurung',
+    'non-profit',
+    'indigenous',
+    'culture',
     'heritage',
-    'cultural events',
   ],
-  authors: [{ name: 'International TAMU Corporation' }],
-  creator: 'International TAMU Corporation',
+  authors: [{ name: 'International Tamu (Gurung) Council' }],
+  creator: 'International Tamu (Gurung) Council',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'International TAMU Corporation',
-    title: 'International TAMU Corporation | Building Cultural Bridges',
+    siteName: 'International Tamu (Gurung) Council',
+    title: 'International Tamu (Gurung) Council | Unity, Identity and Prosperity',
     description:
-      'A nonprofit organization dedicated to building bridges across cultures, fostering community spirit, and preserving heritage.',
+      'Together, we preserve our heritage, strengthen our unity, and build a prosperous future for generations to come.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'International TAMU Corporation',
+        alt: 'International Tamu (Gurung) Council',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'International TAMU Corporation',
+    title: 'International Tamu (Gurung) Council',
     description:
-      'Building bridges across cultures, fostering community spirit, and preserving heritage.',
+      'Together, we preserve our heritage, strengthen our unity, and build a prosperous future for generations to come.',
     images: ['/images/og-image.jpg'],
   },
   robots: {

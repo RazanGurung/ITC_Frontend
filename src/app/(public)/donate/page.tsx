@@ -41,8 +41,8 @@ export default function DonatePage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder for Stripe integration
-    alert(`Donation of $${finalAmount} will be processed via Stripe (integration pending)`);
+    // Online payments are not enabled yet; supporters are directed to the Secretariat.
+    window.location.href = '/contact';
   };
 
   // Icons for impact items
@@ -65,7 +65,7 @@ export default function DonatePage() {
     <>
       {/* Hero Section */}
       <section className="page-header">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               {t.donate.title}
@@ -79,7 +79,7 @@ export default function DonatePage() {
 
       {/* Donation Section */}
       <section className="section bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Donation Form */}
             <div>
@@ -89,7 +89,7 @@ export default function DonatePage() {
                 </h2>
 
                 <Alert variant="info" className="mb-6">
-                  Stripe payment integration coming soon. This is a placeholder form.
+                  Online giving is not open yet. To support the Council's work, please get in touch with the ITC Secretariat through the Contact page.
                 </Alert>
 
                 <form onSubmit={handleSubmit} className="space-y-6">

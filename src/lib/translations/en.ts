@@ -35,30 +35,30 @@ export const en = {
     hero: {
       title: 'Building Bridges',
       titleHighlight: 'Across Cultures',
-      subtitle: 'International TAMU Corporation is dedicated to fostering community spirit, preserving heritage, and creating lasting connections for future generations.',
+      subtitle: 'The International Tamu (Gurung) Council brings Tamu communities and organizations from around the world together to preserve our language, culture and traditions and pass them to future generations.',
       cta: 'Learn About Us',
       ctaSecondary: 'View Events',
     },
     stats: {
-      years: 'Years of Service',
-      members: 'Community Members',
-      events: 'Annual Events',
-      partners: 'Partner Organizations',
+      years: 'Founding conference, Kathmandu',
+      members: 'International Tamu conferences',
+      events: 'Member organizing committee, 2019',
+      partners: 'Guiding principles',
     },
     mission: {
       title: 'Our Mission',
-      subtitle: 'We are committed to creating a vibrant community that celebrates diversity, preserves tradition, and builds bridges across cultures.',
+      subtitle: 'To unite, connect, and empower Tamu (Gurung) people and organizations around the world through cooperation, cultural preservation, education, research, advocacy, social welfare, and sustainable development.',
       community: {
-        title: 'Community',
-        description: 'Building strong connections within and across diverse communities.',
+        title: 'Unity',
+        description: 'Strengthen unity, friendship, and solidarity among Tamu people worldwide.',
       },
       culture: {
         title: 'Culture',
-        description: 'Celebrating and preserving our rich cultural heritage and traditions.',
+        description: 'Preserve and promote Tamu language, script, culture, traditions, customs, and heritage.',
       },
       education: {
-        title: 'Education',
-        description: 'Empowering through cultural education and youth development programs.',
+        title: 'Youth & Women',
+        description: 'Encourage young people and women to participate, lead, and carry Tamu heritage forward.',
       },
     },
     upcomingEvents: {
@@ -75,7 +75,7 @@ export const en = {
     },
     cta: {
       title: 'Join Our Community',
-      subtitle: 'Become a part of our vibrant community. Together, we can make a difference and create lasting impact.',
+      subtitle: 'The Council welcomes Tamu organizations, communities, scholars, intellectuals, professionals, youth, women, cultural leaders, well-wishers, and friends of the Tamu community around the world.',
       support: 'Support Our Cause',
       contact: 'Get In Touch',
     },
@@ -83,29 +83,29 @@ export const en = {
 
   // About Page
   about: {
-    title: 'About International TAMU Corporation',
-    subtitle: 'For over 25 years, we have been dedicated to building bridges across cultures, fostering community spirit, and preserving heritage for future generations.',
+    title: 'About the International Tamu (Gurung) Council',
+    subtitle: 'A non-profit umbrella organization uniting Tamu communities worldwide to preserve our language, culture and traditions, and to pass them to the next generation.',
     mission: {
       title: 'Our Mission',
-      content: 'International TAMU Corporation is committed to creating a vibrant community that celebrates diversity, preserves tradition, and builds bridges across cultures. We believe that through cultural exchange and community engagement, we can create a more understanding and connected world.',
-      content2: 'Our programs and events are designed to bring people together, promote cultural awareness, and provide opportunities for personal growth and community development.',
+      content: 'The International Tamu (Gurung) Council exists to unite, connect and empower Tamu people and organizations around the world through cooperation, cultural preservation, education, research and community welfare. Our identity is a living heritage: it must not only be kept in books and records, but practiced, shared and passed from one generation to the next.',
+      content2: 'Wherever Tamu families have settled, distance should never become a barrier to our language, script, history and customs. The Council gives every community a common platform to learn from one another and stand together.',
     },
     vision: {
       title: 'Our Vision',
       items: [
-        'A world where cultural diversity is celebrated and embraced',
-        'Strong communities built on mutual respect and understanding',
-        'Empowered youth who carry forward cultural traditions',
-        'Lasting positive impact in communities worldwide',
+        'A united, proud and prosperous Tamu (Gurung) community worldwide',
+        'Tamu language, script, history and traditions preserved and practiced',
+        'Youth and women leading the way in carrying our heritage forward',
+        'Dignity, equality and indigenous rights respected everywhere',
       ],
     },
     history: {
       title: 'Our History',
-      subtitle: 'A journey of cultural celebration and community building.',
+      subtitle: 'From a regional gathering to a worldwide council: the conferences that built ITC.',
     },
     team: {
-      title: 'Our Leadership Team',
-      subtitle: 'Dedicated individuals committed to our mission and community.',
+      title: 'Our Leadership',
+      subtitle: 'Community leaders from across the Tamu world, guardians of our culture and tradition.',
     },
     cta: {
       title: 'Join Our Community',
@@ -115,16 +115,16 @@ export const en = {
 
   // Events Page
   events: {
-    title: 'Community Events',
-    subtitle: 'Join us at our cultural events, festivals, and community gatherings. Experience the richness of diverse traditions and connect with fellow community members.',
+    title: 'Events & Conferences',
+    subtitle: 'Conferences, seminars, workshops, cultural programs and discussions on Tamu language, script, history, culture, traditions and heritage, organized by the Council with Tamu organizations around the world.',
     status: {
       upcoming: 'Upcoming',
       ongoing: 'Ongoing',
       completed: 'Completed',
       cancelled: 'Cancelled',
     },
-    noEvents: 'No Events Available',
-    noEventsSubtitle: 'Check back soon for upcoming events!',
+    noEvents: 'No upcoming events announced',
+    noEventsSubtitle: 'New conferences and programs will be posted here.',
     newsletter: {
       title: 'Never Miss an Event',
       subtitle: 'Subscribe to our newsletter to stay updated on upcoming events and community news.',
@@ -146,7 +146,7 @@ export const en = {
   // News Page
   news: {
     title: 'News & Updates',
-    subtitle: 'Stay informed with the latest news, stories, and announcements from our community.',
+    subtitle: 'News, declarations and announcements from the International Tamu (Gurung) Council and Tamu communities worldwide.',
     noNews: 'No News Articles Yet',
     noNewsSubtitle: 'Check back soon for updates!',
     tags: 'Tags',
@@ -156,7 +156,7 @@ export const en = {
   // Gallery Page
   gallery: {
     title: 'Photo & Video Gallery',
-    subtitle: 'Explore moments from our community events, cultural celebrations, and gatherings through our collection of photos and videos.',
+    subtitle: 'Moments from our conferences, our culture and the Himalayan homeland of the Tamu people.',
     noItems: 'No Gallery Items',
     noItemsSubtitle: 'Check back soon for photos and videos!',
     video: 'Video',
@@ -172,8 +172,6 @@ export const en = {
       address: 'Address',
       email: 'Email',
       phone: 'Phone',
-      hours: 'Office Hours',
-      hoursDetail: 'Monday - Friday: 9am - 5pm\nSaturday: 10am - 2pm\nSunday: Closed',
     },
     form: {
       title: 'Send Us a Message',
@@ -184,7 +182,7 @@ export const en = {
       message: 'Message',
       namePlaceholder: 'John Doe',
       emailPlaceholder: 'john@example.com',
-      phonePlaceholder: '(123) 456-7890',
+      phonePlaceholder: '+977 98XXXXXXXX',
       subjectPlaceholder: 'How can we help?',
       messagePlaceholder: 'Tell us more about your inquiry...',
       optional: 'Optional',
@@ -205,7 +203,7 @@ export const en = {
   // Donate Page
   donate: {
     title: 'Support Our Mission',
-    subtitle: 'Your generous donation helps us continue building bridges across cultures, preserving heritage, and empowering communities.',
+    subtitle: 'Your support helps the Council preserve Tamu language, script, culture and heritage, and strengthen Tamu communities worldwide.',
     form: {
       title: 'Make a Donation',
       selectAmount: 'Select Amount',
@@ -219,25 +217,25 @@ export const en = {
       messagePlaceholder: "Share why you're supporting us...",
       submit: 'Donate',
       selectAmountError: 'Select an amount',
-      taxDeductible: 'Your donation is tax-deductible. You will receive a receipt via email.',
+      taxDeductible: 'The International Tamu (Gurung) Council is a non-profit, non-political organization.',
     },
     impact: {
       title: 'Your Impact',
-      subtitle: "Every donation makes a difference. Here's how your contribution helps our community:",
+      subtitle: 'Support for the Council goes toward the work set out in its programs and objectives:',
       items: [
-        { amount: '$25', description: 'Provides educational materials for one youth program participant' },
-        { amount: '$50', description: 'Supports one cultural workshop or community gathering' },
-        { amount: '$100', description: 'Helps fund a cultural preservation project' },
-        { amount: '$250+', description: 'Sponsors a major community event or festival' },
+        { amount: 'Language & Script', description: 'Preserve, promote, develop, and strengthen the Tamu (Gurung) language and script.' },
+        { amount: 'Culture & Traditions', description: 'Promote the preservation and practice of Tamu culture, traditions, customs, indigenous knowledge, and identity.' },
+        { amount: 'Research & Documentation', description: 'Conduct and support research, studies, documentation, publications, and knowledge-sharing activities relating to Tamu history, lifestyle, traditions, customs, language, culture, and heritage.' },
+        { amount: 'Youth & Women', description: 'Create greater opportunities for the participation and leadership of youth and women.' },
       ],
     },
     why: {
       title: 'Why Donate to ITC?',
       items: [
-        '501(c)(3) nonprofit organization',
-        '100% tax-deductible donations',
-        'Transparent use of funds',
-        'Secure payment processing',
+        'Non-profit, non-political international umbrella organization',
+        'Brings together Tamu communities and organizations worldwide',
+        'Founded on the Kathmandu Declaration 2019',
+        'Guided by unity, identity, heritage, dignity, inclusion, cooperation, empowerment and prosperity',
       ],
     },
     questions: 'Have questions about donating?',
@@ -245,13 +243,13 @@ export const en = {
 
   // Footer
   footer: {
-    description: 'Building bridges across cultures, fostering community spirit, and preserving heritage for future generations.',
+    description: 'Together, we preserve our heritage, strengthen our unity, and build a prosperous future for generations to come.',
     quickLinks: 'Quick Links',
     getInvolved: 'Get Involved',
     contactUs: 'Contact Us',
-    volunteer: 'Volunteer',
-    membership: 'Membership',
-    copyright: '© {year} International TAMU Corporation. All rights reserved.',
+    volunteer: 'Our Leadership',
+    membership: 'Smarika 2019',
+    copyright: '© {year} International Tamu (Gurung) Council. All rights reserved.',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
   },

@@ -68,7 +68,7 @@ export default async function NewsDetailsPage({ params }: NewsPageProps) {
     <>
       {/* Header */}
       <section className="page-header">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/news"
             className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 mb-6"
@@ -121,7 +121,7 @@ export default async function NewsDetailsPage({ params }: NewsPageProps) {
 
       {/* Content */}
       <section className="section bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             {post.featuredImage && (
               <div className="aspect-video rounded-xl overflow-hidden mb-8">

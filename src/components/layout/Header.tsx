@@ -57,7 +57,7 @@ function LanguageToggle() {
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   // Navigation items with translations
   const navItems = [
@@ -76,7 +76,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
@@ -87,9 +87,9 @@ export function Header() {
             />
             <div className="hidden sm:block">
               <h1 className="font-heading font-bold text-lg text-gray-900">
-                International TAMU
+                {language === 'ne' ? 'अन्तर्राष्ट्रिय तमू (गुरुङ)' : 'International Tamu (Gurung)'}
               </h1>
-              <p className="text-xs text-gray-500">Corporation</p>
+              <p className="text-xs text-gray-500">{language === 'ne' ? 'परिषद्' : 'Council'}</p>
             </div>
           </Link>
 

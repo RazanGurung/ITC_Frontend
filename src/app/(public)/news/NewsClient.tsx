@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { Button } from '@/components/ui';
 import { useTranslation } from '@/context';
+import { smarika } from '@/lib/content/council';
 import { formatDate } from '@/lib/utils';
 import type { Post } from '@/types';
 
@@ -14,7 +16,7 @@ export function NewsHeader() {
 
   return (
     <section className="page-header">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
             {t.news.title}
@@ -99,5 +101,65 @@ export function NewsEmptyState() {
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{t.news.noNews}</h3>
       <p className="text-gray-500">{t.news.noNewsSubtitle}</p>
     </div>
+  );
+}
+
+// ============================================
+// Publications (Smarika)
+// ============================================
+
+export function PublicationsSection() {
+  const { language } = useTranslation();
+  const en = language === 'en';
+
+  return (
+    <section className="section bg-gray-50" id="publications">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-heading font-bold text-gray-900 mb-2">
+          {en ? 'Publications' : 'प्रकाशनहरू'}
+        </h2>
+        <p className="text-gray-600 mb-8 max-w-2xl">
+          {en
+            ? 'Documents published by the council, free to read and download.'
+            : 'परिषद्ले प्रकाशन गरेका सामग्रीहरू, पढ्न र डाउनलोड गर्न निःशुल्क।'}
+        </p>
+        <article className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden md:flex">
+          <div className="md:w-64 shrink-0 bg-gray-100 flex items-center justify-center p-6">
+            <img
+              src={smarika.cover}
+              alt={smarika.title}
+              className="w-44 md:w-full h-auto rounded shadow-lg"
+              loading="lazy"
+            />
+          </div>
+          <div className="p-6 md:p-8 flex flex-col justify-center">
+            <span className="text-sm font-medium text-primary-600">
+              {en ? 'Smarika · Souvenir Publication' : 'स्मारिका'}
+            </span>
+            <h3 className="text-2xl font-semibold text-gray-900 mt-2 mb-1">
+              {en ? smarika.title : smarika.titleNe}
+            </h3>
+            <p className="text-sm text-gray-500 mb-4">
+              {smarika.dates} · {smarika.pages} {en ? 'pages' : 'पृष्ठ'} · {en ? 'In Nepali' : 'नेपाली भाषामा'}
+            </p>
+            <ul className="flex flex-wrap gap-2 mb-6">
+              {smarika.contents.map((c) => (
+                <li key={c.en} className="text-xs bg-primary-50 text-primary-700 rounded-full px-3 py-1">
+                  {en ? c.en : c.ne}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <a href={smarika.file} target="_blank" rel="noopener noreferrer">
+                <Button>{en ? 'Read Online' : 'अनलाइन पढ्नुहोस्'}</Button>
+              </a>
+              <a href={smarika.file} download>
+                <Button variant="outline">{en ? 'Download PDF (12 MB)' : 'PDF डाउनलोड (१२ MB)'}</Button>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
   );
 }

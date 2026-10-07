@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import { postsApi } from '@/lib/api';
+import { Suspense } from 'react';
+import SectionLoader from '@/components/SectionLoader';
+import { postsApi, withTimeout } from '@/lib/api';
 import type { Post } from '@/types';
-import { NewsHeader, NewsCard, NewsEmptyState } from './NewsClient';
+import { NewsHeader, NewsCard, NewsEmptyState, PublicationsSection } from './NewsClient';
 
 // ============================================
 // Metadata
@@ -10,7 +12,7 @@ import { NewsHeader, NewsCard, NewsEmptyState } from './NewsClient';
 export const metadata: Metadata = {
   title: 'News & Updates',
   description:
-    'Stay updated with the latest news, stories, and announcements from International TAMU Corporation.',
+    'Stay updated with the latest news, stories, and announcements from International Tamu (Gurung) Council.',
 };
 
 // ============================================
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
 
 async function getPosts(): Promise<Post[]> {
   try {
-    const response = await postsApi.getAll({ limit: 12 });
+    const response = await withTimeout(postsApi.getAll({ limit: 12 }));
     return response.data;
   } catch {
     return [];
@@ -30,27 +32,35 @@ async function getPosts(): Promise<Post[]> {
 // News Page
 // ============================================
 
-export default async function NewsPage() {
+async function NewsGrid() {
   const posts = await getPosts();
 
+  return posts.length > 0 ? (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => (
+        <NewsCard key={post.id} post={post} />
+      ))}
+    </div>
+  ) : (
+    <NewsEmptyState />
+  );
+}
+
+export default function NewsPage() {
   return (
     <>
       <NewsHeader />
 
       {/* News Grid */}
       <section className="section bg-white">
-        <div className="container mx-auto px-4">
-          {posts.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <NewsCard key={post.id} post={post} />
-              ))}
-            </div>
-          ) : (
-            <NewsEmptyState />
-          )}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <Suspense fallback={<SectionLoader />}>
+            <NewsGrid />
+          </Suspense>
         </div>
       </section>
+
+      <PublicationsSection />
     </>
   );
 }

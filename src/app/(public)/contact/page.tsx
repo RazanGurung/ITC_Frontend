@@ -91,7 +91,7 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
       <section className="page-header">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               {t.contact.title}
@@ -105,7 +105,7 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <section className="section bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
@@ -124,8 +124,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">{t.contact.info.address}</h3>
                     <p className="text-gray-600 mt-1">
-                      123 Community Center Drive<br />
-                      College Station, TX 77840
+                      ITC Secretariat<br />
+                      Kathmandu, Nepal<br />
+                      P.O. Box 23348
                     </p>
                   </div>
                 </div>
@@ -139,10 +140,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">{t.contact.info.email}</h3>
                     <a
-                      href="mailto:info@itc.org"
+                      href="mailto:tamucouncil2019@gmail.com"
                       className="text-primary-600 hover:text-primary-700 mt-1 block"
                     >
-                      info@itc.org
+                      tamucouncil2019@gmail.com
                     </a>
                   </div>
                 </div>
@@ -156,25 +157,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">{t.contact.info.phone}</h3>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+977014385868"
                       className="text-primary-600 hover:text-primary-700 mt-1 block"
                     >
-                      (123) 456-7890
+                      +977-014385868
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">{t.contact.info.hours}</h3>
-                    <p className="text-gray-600 mt-1 whitespace-pre-line">
-                      {t.contact.info.hoursDetail}
-                    </p>
                   </div>
                 </div>
               </div>
@@ -265,19 +252,6 @@ export default function ContactPage() {
                 </form>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="h-96 bg-gray-200">
-        <div className="w-full h-full flex items-center justify-center text-gray-500">
-          <div className="text-center">
-            <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-            <p>Interactive map will be embedded here</p>
-            <p className="text-sm mt-1">Google Maps or similar integration</p>
           </div>
         </div>
       </section>

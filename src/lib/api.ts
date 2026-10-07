@@ -25,7 +25,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.itc.org';
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 30000,
+  timeout: 4000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -250,3 +250,11 @@ export const uploadApi = {
 
 // Export the base client for custom requests
 export { apiClient };
+
+/** Resolve with the promise, or reject after `ms` so pages never wait on a slow backend. */
+export function withTimeout<T>(promise: Promise<T>, ms = 1500): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
+  ]);
+}

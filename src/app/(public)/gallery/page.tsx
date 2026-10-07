@@ -123,90 +123,36 @@ function Lightbox({
 // Sample Gallery Data (for design preview)
 // ============================================
 
+const stamp = '2019-10-11T00:00:00.000Z';
+
+const photo = (id: string, title: string, description: string, url: string): GalleryItem => ({
+  id,
+  title,
+  description,
+  url,
+  type: 'image',
+  createdAt: stamp,
+  updatedAt: stamp,
+});
+
+const video = (id: string, title: string, description: string, youtubeId: string): GalleryItem => ({
+  id,
+  title,
+  description,
+  url: '',
+  type: 'video',
+  youtubeId,
+  createdAt: stamp,
+  updatedAt: stamp,
+});
+
 const sampleGalleryItems: GalleryItem[] = [
-  {
-    id: '1',
-    title: 'Cultural Celebration',
-    description: 'Traditional Tamu dress and celebration',
-    url: '/images/gallery/1.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '2',
-    title: 'Our Homeland',
-    description: 'The beautiful Himalayan mountains',
-    url: '/images/gallery/2.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '3',
-    title: 'Traditional Lifestyle',
-    description: 'Pastoral life in the hills',
-    url: '/images/gallery/3.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '4',
-    title: 'Tamu Cultural Video',
-    description: 'Experience our rich cultural heritage',
-    url: '',
-    type: 'video',
-    youtubeId: 'm0MXDApIC8U',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '9',
-    title: 'Traditional Music & Dance',
-    description: 'Celebrating our ancestral traditions',
-    url: '',
-    type: 'video',
-    youtubeId: '0PHJ-kGuWdY',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '5',
-    title: 'Festival Moments',
-    description: 'Celebrating together',
-    url: '/images/gallery/1.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '6',
-    title: 'Mountain Views',
-    description: 'Views from our homeland',
-    url: '/images/gallery/2.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '7',
-    title: 'Village Life',
-    description: 'Life in the mountains',
-    url: '/images/gallery/3.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: '8',
-    title: 'Community Gathering',
-    description: 'Our people coming together',
-    url: '/images/gallery/1.jpg',
-    type: 'image',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
+  photo('c1', 'Historic First International Tamu Conference', 'The stage at the conference in Kathmandu, 11–12 October 2019', '/images/conference2019/conference-2019-stage.jpg'),
+  photo('c2', 'Felicitation at the 2019 Conference', 'Dignitaries honoured with khada scarves at the Kathmandu conference', '/images/conference2019/conference-2019-felicitation.jpg'),
+  video('v1', 'Tamu Cultural Video', 'Experience our rich cultural heritage', 'm0MXDApIC8U'),
+  photo('h1', 'Living Dress and Ornament', 'Traditional Tamu headwear, gold jewellery and beaded necklaces', '/images/heritage/tamu-heritage-dress.jpg'),
+  photo('h2', 'The Himalayan Homeland', 'Snow-capped peaks above the hills of the Tamu homeland', '/images/heritage/himalayan-homeland.jpg'),
+  video('v2', 'Traditional Music & Dance', 'Celebrating our ancestral traditions', '0PHJ-kGuWdY'),
 ];
 
 // ============================================
@@ -255,7 +201,7 @@ export default function GalleryPage() {
     <>
       {/* Hero Section */}
       <section className="page-header">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
               {t.gallery.title}
@@ -269,7 +215,7 @@ export default function GalleryPage() {
 
       {/* Gallery Section */}
       <section className="section bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex gap-2">

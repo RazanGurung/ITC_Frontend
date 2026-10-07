@@ -82,7 +82,7 @@ export function EventsHeader() {
 
   return (
     <section className="page-header">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
             {t.events.title}
@@ -115,35 +115,107 @@ export function EventsEmptyState() {
 }
 
 // ============================================
+// Conference Milestones
+// ============================================
+
+const conferenceMilestones = [
+  {
+    year: '2016',
+    en: { title: 'Historic First Tamu SAARC Conference', place: 'Dharan, Sunsari, Nepal', date: '23–24 October 2016' },
+    ne: { title: 'ऐतिहासिक प्रथम तमू सार्क सम्मेलन', place: 'धरान, सुनसरी, नेपाल', date: '२३–२४ अक्टोबर २०१६' },
+    image: null as string | null,
+  },
+  {
+    year: '2019',
+    en: { title: 'First International Tamu Conference', place: 'Kathmandu, Nepal', date: '11–12 October 2019' },
+    ne: { title: 'प्रथम अन्तर्राष्ट्रिय तमू सम्मेलन', place: 'काठमाडौं, नेपाल', date: '११–१२ अक्टोबर २०१९' },
+    image: '/images/conference2019/conference-2019-stage.jpg',
+  },
+  {
+    year: '2022',
+    en: { title: 'Second International Tamu (Gurung) Conference', place: 'Dentam, West Sikkim, India', date: '11–13 October 2022' },
+    ne: { title: 'दोस्रो अन्तर्राष्ट्रिय तमू (गुरुङ) सम्मेलन', place: 'डेन्तम, पश्चिम सिक्किम, भारत', date: '११–१३ अक्टोबर २०२२' },
+    image: null as string | null,
+  },
+];
+
+export function ConferenceMilestones() {
+  const { language } = useTranslation();
+  const en = language === 'en';
+
+  return (
+    <section className="section bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary-600 mb-3">
+            {en ? 'Where we have gathered' : 'हामी जहाँ भेला भयौं'}
+          </p>
+          <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
+            {en ? 'Conference Milestones' : 'सम्मेलनका कोसेढुङ्गा'}
+          </h2>
+          <p className="text-lg text-gray-600">
+            {en ? 'Unity, Identity and Prosperity' : 'एकता, पहिचान र समृद्धि'}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {conferenceMilestones.map((c) => {
+            const text = en ? c.en : c.ne;
+            return (
+              <article key={c.year} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col">
+                {c.image ? (
+                  <img src={c.image} alt={c.en.title} loading="lazy" className="w-full h-44 object-cover" />
+                ) : (
+                  <div className="w-full h-44 bg-gradient-to-br from-primary-600 to-secondary-700 flex items-center justify-center">
+                    <span className="text-5xl font-heading font-bold text-white/90">{c.year}</span>
+                  </div>
+                )}
+                <div className="p-6 flex-1">
+                  <p className="text-sm font-semibold text-primary-600">{text.date}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mt-1">{text.title}</h3>
+                  <p className="text-sm text-gray-500 mt-2">{text.place}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-10">
+          <a href="/about#background" className="text-primary-700 font-semibold hover:text-primary-800">
+            {en ? 'Read the full story →' : 'पूरा कथा पढ्नुहोस् →'}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================
 // Newsletter Section
 // ============================================
 
 export function EventsNewsletter() {
-  const { t } = useTranslation();
+  const { language } = useTranslation();
+  const en = language === 'en';
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4">
-            {t.events.newsletter.title}
+            {en ? 'Organizing a Tamu program?' : 'तमू कार्यक्रम आयोजना गर्दै हुनुहुन्छ?'}
           </h2>
           <p className="text-gray-600 mb-6">
-            {t.events.newsletter.subtitle}
+            {en
+              ? 'The Council supports Tamu organizations around the world. Write to the Secretariat to hear about upcoming conferences or to take part.'
+              : 'परिषद्ले विश्वभरका तमू संस्थाहरूलाई सहयोग गर्छ। आगामी सम्मेलनबारे जान्न वा सहभागी हुन सचिवालयलाई सम्पर्क गर्नुहोस्।'}
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder={t.events.newsletter.placeholder}
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
-            >
-              {t.events.newsletter.button}
-            </button>
-          </form>
+          <a
+            href="/contact"
+            className="inline-block px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+          >
+            {en ? 'Contact the Secretariat' : 'सचिवालयलाई सम्पर्क गर्नुहोस्'}
+          </a>
         </div>
       </div>
     </section>

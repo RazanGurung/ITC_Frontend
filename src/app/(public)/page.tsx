@@ -1,10 +1,14 @@
-import { eventsApi, postsApi } from '@/lib/api';
+import { Suspense } from 'react';
+import SectionLoader from '@/components/SectionLoader';
+import { eventsApi, postsApi, withTimeout } from '@/lib/api';
 import type { Event, Post } from '@/types';
 import {
   HeroSection,
   StatsSection,
   MissionSection,
   HeritageSection,
+  LeadershipSection,
+  ConferenceSection,
   EventsSection,
   NewsSection,
   CTASection,
@@ -15,9 +19,9 @@ import {
 // ============================================
 
 export const metadata = {
-  title: 'Home | International TAMU Corporation',
+  title: 'Home | International Tamu (Gurung) Council',
   description:
-    'International TAMU Corporation - Preserving our heritage, uniting our community, and building a home away from home.',
+    'International Tamu (Gurung) Council - Preserving our heritage, uniting our community, and building a home away from home.',
 };
 
 // ============================================
@@ -27,8 +31,8 @@ export const metadata = {
 async function getHomeData(): Promise<{ events: Event[]; posts: Post[] }> {
   try {
     const [events, posts] = await Promise.all([
-      eventsApi.getUpcoming(3),
-      postsApi.getRecent(3),
+      withTimeout(eventsApi.getUpcoming(3)),
+      withTimeout(postsApi.getRecent(3)),
     ]);
     return { events, posts };
   } catch {
@@ -41,17 +45,29 @@ async function getHomeData(): Promise<{ events: Event[]; posts: Post[] }> {
 // Home Page
 // ============================================
 
-export default async function HomePage() {
+async function EventsAndNews() {
   const { events, posts } = await getHomeData();
 
+  return (
+    <>
+      <EventsSection events={events} />
+      <NewsSection posts={posts} />
+    </>
+  );
+}
+
+export default function HomePage() {
   return (
     <>
       <HeroSection />
       <StatsSection />
       <MissionSection />
       <HeritageSection />
-      <EventsSection events={events} />
-      <NewsSection posts={posts} />
+      <LeadershipSection />
+      <ConferenceSection />
+      <Suspense fallback={<SectionLoader className="py-32 bg-gray-50" />}>
+        <EventsAndNews />
+      </Suspense>
       <CTASection />
     </>
   );
