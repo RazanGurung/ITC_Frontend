@@ -37,8 +37,8 @@
     font-family: var(--font-nepali), var(--font-heading);
   }
 
-  /* Smooth scrolling */
-  html {
+  /* Smooth scrolling (enabled after load so a refresh doesn't animate scroll restoration) */
+  html.scroll-ready {
     scroll-behavior: smooth;
   }
 

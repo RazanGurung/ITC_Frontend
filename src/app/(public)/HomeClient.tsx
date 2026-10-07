@@ -516,8 +516,8 @@ export function LeadershipSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-10 items-center max-w-6xl mx-auto">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-md:gap-8 items-center max-w-6xl mx-auto">
+          <div className="lg:col-span-2 min-w-0">
             <Link href="/about#president" className="group block relative rounded-3xl overflow-hidden shadow-xl">
               <img
                 src={president.image}
@@ -532,7 +532,7 @@ export function LeadershipSection() {
             </Link>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0">
             <div className="flex gap-4 overflow-x-auto snap-x -mx-4 px-4 pb-2 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-4 sm:gap-6">
               {board.map((member) => (
                 <Link key={member.name} href="/about#board" className="text-center group shrink-0 w-24 snap-start sm:w-auto">

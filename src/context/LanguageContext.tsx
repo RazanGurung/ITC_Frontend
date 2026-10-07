@@ -45,6 +45,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setLanguageState(storedLanguage);
     }
     setIsHydrated(true);
+    const timer = window.setTimeout(() => document.documentElement.classList.add('scroll-ready'), 500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   // Update document lang attribute when language changes
@@ -75,11 +77,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Get translations for current language
   const t = translations[language];
 
-  // Prevent hydration mismatch by rendering children only after hydration
-  if (!isHydrated) {
-    return null;
-  }
-
+  // Children render immediately (the first render matches the server, in English),
+  // so the browser can restore the scroll position on refresh.
   return (
     <LanguageContext.Provider
       value={{
