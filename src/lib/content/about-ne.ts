@@ -216,8 +216,8 @@ export const membersNe: Record<string, MemberNe> = {
   'Chandra B. Gurung': {
     name: 'चन्द्र बि. गुरुङ',
     role: 'परिषद् सदस्य',
-    location: 'काठमाडौं, नेपाल',
-    summary: 'कार्यकारी निर्देशक, सूर्य शिक्षा सदन फाउन्डेसन।',
+    location: 'पश्चिम सिक्किम, भारत',
+    summary: 'कार्यकारी निर्देशक, सूर्य शिक्षा सदन फाउन्डेसन; अध्यक्ष, लायन्स क्लब अफ काठमाडौं।',
     highlights: [],
   },
   'Om Bahadur Gurung': {

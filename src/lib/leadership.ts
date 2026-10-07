@@ -103,8 +103,8 @@ export const councilMembers: LeadershipMember[] = [
     name: 'Chandra B. Gurung',
     role: 'Council Member',
     image: '/images/team/chandra-b-gurung.jpg',
-    location: 'Kathmandu, Nepal',
-    summary: 'Executive Director, Surya Shiksha Sadan Foundation.',
+    location: 'West Sikkim, India',
+    summary: 'Executive Director, Surya Shiksha Sadan Foundation; President, Lions Club of Kathmandu.',
     highlights: [],
   },
   {
