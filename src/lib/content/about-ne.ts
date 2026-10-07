@@ -217,7 +217,7 @@ export const membersNe: Record<string, MemberNe> = {
     name: 'चन्द्र प्ले गुरुङ',
     role: 'परिषद् सदस्य',
     location: 'पश्चिम सिक्किम, भारत',
-    summary: 'कार्यकारी निर्देशक, सूर्य शिक्षा सदन फाउन्डेसन; अध्यक्ष, लायन्स क्लब अफ काठमाडौं।',
+    summary: 'कार्यकारी निर्देशक, सूर्य शिक्षा सदन फाउन्डेसन।',
     highlights: [],
   },
   'Om Bahadur Gurung': {

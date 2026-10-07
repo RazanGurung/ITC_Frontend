@@ -104,7 +104,7 @@ export const councilMembers: LeadershipMember[] = [
     role: 'Council Member',
     image: '/images/team/chandra-b-gurung.jpg',
     location: 'West Sikkim, India',
-    summary: 'Executive Director, Surya Shiksha Sadan Foundation; President, Lions Club of Kathmandu.',
+    summary: 'Executive Director, Surya Shiksha Sadan Foundation.',
     highlights: [],
   },
   {

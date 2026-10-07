@@ -79,7 +79,7 @@ export function HeroSection() {
             )}
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-md:mb-6 max-md:text-base max-md:line-clamp-4 leading-relaxed max-w-2xl">
             {language === 'en'
               ? "No matter how far we are from the mountains, we carry our heritage in our hearts. Join us in celebrating our traditions, preserving our culture, and building a home away from home."
               : "हामी पहाडबाट जतिसुकै टाढा भए पनि, हाम्रो सम्पदा हाम्रो मुटुमा छ। हाम्रो परम्परा मनाउन, हाम्रो संस्कृति संरक्षण गर्न, र घरबाट टाढा एउटा घर बनाउन हामीसँग सामेल हुनुहोस्।"
@@ -211,33 +211,35 @@ export function MissionSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 max-md:py-12 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-md:mb-8">
           <span className="text-primary-600 font-medium text-sm uppercase tracking-wider">
             {language === 'en' ? 'What We Stand For' : 'हामी के को लागि उभिन्छौं'}
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-4">
             {language === 'en' ? 'Our Roots, Our Pride' : 'हाम्रो जरा, हाम्रो गौरव'}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg max-md:text-base max-md:line-clamp-3 text-gray-600 max-w-2xl mx-auto">
             {language === 'en'
               ? 'The International Tamu (Gurung) Council is more than an organization. It represents a shared aspiration to bring Tamu people and organizations around the world closer together.'
               : 'अन्तर्राष्ट्रिय तमू (गुरुङ) परिषद् एक संस्थाभन्दा बढी हो। यो विश्वभरका तमू जनता र संस्थाहरूलाई नजिक ल्याउने साझा आकांक्षा हो।'}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-md:gap-4">
           {values.map((value) => (
             <div
               key={value.title}
-              className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow text-center group"
+              className="bg-gradient-to-br from-gray-50 to-white p-8 max-md:p-5 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow text-center max-md:text-left max-md:flex max-md:items-start max-md:gap-4 group"
             >
-              <span className="text-5xl mb-6 block group-hover:scale-110 transition-transform">
+              <span className="text-5xl mb-6 max-md:mb-0 max-md:text-3xl block group-hover:scale-110 transition-transform">
                 {value.icon}
               </span>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              <div>
+                <h3 className="text-xl max-md:text-lg font-semibold text-gray-900 mb-3 max-md:mb-1">{value.title}</h3>
+                <p className="text-gray-600 max-md:text-sm leading-relaxed">{value.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -254,7 +256,7 @@ export function HeritageSection() {
   const { language } = useTranslation();
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 max-md:py-12 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Images Grid */}
@@ -263,21 +265,21 @@ export function HeritageSection() {
               <img
                 src="/images/gallery/1.jpg"
                 alt="Cultural celebration"
-                className="w-full h-48 object-cover rounded-2xl shadow-lg"
+                className="w-full h-48 max-md:h-32 object-cover rounded-2xl shadow-lg"
               />
               <img
                 src="/images/gallery/3.jpg"
                 alt="Traditional lifestyle"
-                className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                className="w-full h-64 max-md:h-44 object-cover rounded-2xl shadow-lg"
               />
             </div>
             <div className="space-y-4 pt-8">
               <img
                 src="/images/gallery/2.jpg"
                 alt="Himalayan homeland"
-                className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                className="w-full h-64 max-md:h-44 object-cover rounded-2xl shadow-lg"
               />
-              <div className="w-full h-48 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center text-white p-6 text-center">
+              <div className="w-full h-48 max-md:h-32 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-2xl flex items-center justify-center text-white p-6 text-center">
                 <div>
                   <p className="text-3xl font-bold mb-2">3</p>
                   <p className="text-sm opacity-90">
@@ -293,17 +295,17 @@ export function HeritageSection() {
             <span className="text-primary-600 font-medium text-sm uppercase tracking-wider">
               {language === 'en' ? 'Our Journey' : 'हाम्रो यात्रा'}
             </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-6">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-6 max-md:mb-4">
               {language === 'en'
                 ? 'From the Mountains to Your Hearts'
                 : 'पहाडबाट तपाईंको मुटुसम्म'}
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 max-md:mb-5 leading-relaxed max-md:text-sm">
               {language === 'en'
                 ? "Tamu communities now live in many countries, but distance should never become a barrier to our relationships, identity, language, culture, and heritage."
                 : "तमू समुदाय आज धेरै देशमा बसोबास गर्छ, तर दूरी हाम्रो सम्बन्ध, पहिचान, भाषा, संस्कृति र सम्पदाको बाधक बन्नु हुँदैन।"}
             </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed max-md:hidden">
               {language === 'en'
                 ? "Our cultural identity is a living heritage. It must not only be preserved in books and records but also practiced, shared, and passed from one generation to another."
                 : "हाम्रो सांस्कृतिक पहिचान जीवित सम्पदा हो। यसलाई किताब र अभिलेखमा मात्र होइन, अभ्यास गरेर, बाँडेर र एक पुस्ताबाट अर्को पुस्तामा हस्तान्तरण गरेर जोगाउनुपर्छ।"}
@@ -328,9 +330,9 @@ export function EventsSection({ events }: { events: Event[] }) {
   const { t, language } = useTranslation();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 max-md:py-12 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 max-md:mb-8">
           <div>
             <span className="text-primary-600 font-medium text-sm uppercase tracking-wider">
               {language === 'en' ? 'Gather With Us' : 'हामीसँग भेला हुनुहोस्'}
@@ -338,7 +340,7 @@ export function EventsSection({ events }: { events: Event[] }) {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-4">
               {language === 'en' ? 'Conferences & Programs' : 'सम्मेलन र कार्यक्रमहरू'}
             </h2>
-            <p className="text-lg text-gray-600 max-w-xl">
+            <p className="text-lg max-md:text-base text-gray-600 max-w-xl">
               {language === 'en'
                 ? 'Seminars, workshops, conferences and cultural programs on Tamu language, history, culture and heritage.'
                 : 'तमू भाषा, इतिहास, संस्कृति र सम्पदासम्बन्धी गोष्ठी, कार्यशाला, सम्मेलन र सांस्कृतिक कार्यक्रमहरू।'}
@@ -386,9 +388,9 @@ export function NewsSection({ posts }: { posts: Post[] }) {
   const { t, language } = useTranslation();
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 max-md:py-12 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 max-md:mb-8">
           <div>
             <span className="text-primary-600 font-medium text-sm uppercase tracking-wider">
               {language === 'en' ? 'News & Updates' : 'समाचार र अपडेटहरू'}
@@ -396,7 +398,7 @@ export function NewsSection({ posts }: { posts: Post[] }) {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-4">
               {language === 'en' ? 'From the Council' : 'परिषद्बाट'}
             </h2>
-            <p className="text-lg text-gray-600 max-w-xl">
+            <p className="text-lg max-md:text-base text-gray-600 max-w-xl">
               {language === 'en'
                 ? 'News, declarations and announcements from Tamu communities around the world.'
                 : 'विश्वभरका तमू समुदायबाट समाचार, घोषणापत्र र सूचनाहरू।'}
@@ -444,7 +446,7 @@ export function CTASection() {
   const { language } = useTranslation();
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 max-md:py-16 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -459,7 +461,7 @@ export function CTASection() {
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
           {language === 'en' ? 'Tamu People of the World, Let Us Unite' : 'विश्वका तमूहरू, एक होऔं'}
         </h2>
-        <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto max-md:text-base max-md:line-clamp-4">
           {language === 'en'
             ? "The Council welcomes Tamu organizations, communities, scholars, intellectuals, professionals, youth, women, cultural leaders, well-wishers, and friends of the Tamu community around the world."
             : "परिषद्ले विश्वभरका तमू संस्था, समुदाय, विद्वान्, बुद्धिजीवी, पेशाकर्मी, युवा, महिला, सांस्कृतिक अगुवा, शुभचिन्तक र तमू समुदायका मित्रहरूको सहभागितालाई स्वागत गर्छ।"}
@@ -498,16 +500,16 @@ export function LeadershipSection() {
   const board = [...executives, ...secretariat, ...councilMembers];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 max-md:py-12 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14 max-md:mb-8">
           <span className="text-primary-600 font-medium text-sm uppercase tracking-wider">
             {en ? 'Our Leadership' : 'हाम्रो नेतृत्व'}
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-3 mb-4">
             {en ? 'Guardians of Our Culture and Tradition' : 'हाम्रो संस्कृति र परम्पराका संरक्षक'}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto max-md:hidden">
             {en
               ? 'A board drawn from Tamu communities in India, Nepal, the United States, Australia, South Korea, Israel and Qatar.'
               : 'भारत, नेपाल, अमेरिका, अष्ट्रेलिया, दक्षिण कोरिया, इजरायल र कतारका तमू समुदायबाट बनेको बोर्ड।'}
@@ -521,7 +523,7 @@ export function LeadershipSection() {
                 src={president.image}
                 alt={`${president.name}, ${president.role}`}
                 loading="lazy"
-                className="w-full aspect-[4/5] object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                className="w-full aspect-[4/5] max-md:aspect-[4/3] object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                 <p className="text-xs uppercase tracking-widest text-primary-200">{en ? 'President' : 'अध्यक्ष'}</p>
@@ -531,9 +533,9 @@ export function LeadershipSection() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
+            <div className="flex gap-4 overflow-x-auto snap-x -mx-4 px-4 pb-2 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-4 sm:gap-6">
               {board.map((member) => (
-                <Link key={member.name} href="/about#board" className="text-center group">
+                <Link key={member.name} href="/about#board" className="text-center group shrink-0 w-24 snap-start sm:w-auto">
                   <div className="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full overflow-hidden ring-4 ring-primary-100 group-hover:ring-primary-400 transition-all bg-gray-100">
                     <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover object-top" />
                   </div>
@@ -542,7 +544,7 @@ export function LeadershipSection() {
                 </Link>
               ))}
             </div>
-            <div className="mt-10">
+            <div className="mt-10 max-md:mt-6 max-md:text-center">
               <Link href="/about#board">
                 <Button size="lg">{en ? 'Meet the Board' : 'बोर्डलाई भेट्नुहोस्'}</Button>
               </Link>
@@ -563,7 +565,7 @@ export function ConferenceSection() {
   const en = language === 'en';
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 text-white">
+    <section className="py-20 max-md:py-12 bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div>
@@ -573,17 +575,17 @@ export function ConferenceSection() {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mt-3 mb-5">
               {en ? 'First International Tamu Conference' : 'प्रथम अन्तर्राष्ट्रिय तमू सम्मेलन'}
             </h2>
-            <p className="text-white/85 text-lg leading-relaxed mb-4">
+            <p className="text-white/85 text-lg max-md:text-base leading-relaxed mb-4">
               {en
                 ? 'Held in Kathmandu on 11–12 October 2019 with a 251-member Main Organizing Committee, the conference adopted the By-Laws (Constitution) of the International Tamu (Gurung) Council and the Kathmandu Declaration 2019 under the theme “Unity, Identity and Prosperity”.'
                 : '११–१२ अक्टोबर २०१९ मा काठमाडौंमा २५१ सदस्यीय मुख्य आयोजक समितिसहित सम्पन्न यस सम्मेलनले “एकता, पहिचान र समृद्धि” भन्ने नाराअन्तर्गत अन्तर्राष्ट्रिय तमू (गुरुङ) परिषद्को विधान र काठमाडौं घोषणापत्र २०१९ पारित गर्‍यो।'}
             </p>
-            <p className="text-white/70 mb-8">
+            <p className="text-white/70 mb-8 max-md:hidden">
               {en
                 ? 'The 146-page Smarika (souvenir) of the conference is available to read.'
                 : 'सम्मेलनको १४६ पृष्ठको स्मारिका पढ्न उपलब्ध छ।'}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 max-md:mt-6">
               <Link href="/about#publication">
                 <Button size="lg" className="!bg-white !text-primary-800 hover:!bg-gray-100">
                   {en ? 'Read the Smarika' : 'स्मारिका पढ्नुहोस्'}
@@ -602,19 +604,19 @@ export function ConferenceSection() {
               src={conferenceImages[0].src}
               alt={conferenceImages[0].alt}
               loading="lazy"
-              className="col-span-2 w-full h-56 md:h-64 object-cover rounded-2xl shadow-2xl"
+              className="col-span-2 w-full h-56 max-md:h-44 md:h-64 object-cover rounded-2xl shadow-2xl"
             />
             <img
               src={conferenceImages[1].src}
               alt={conferenceImages[1].alt}
               loading="lazy"
-              className="w-full h-40 object-cover rounded-2xl shadow-2xl"
+              className="w-full h-40 object-cover rounded-2xl shadow-2xl max-md:hidden"
             />
             <img
               src="/images/conference2019/smarika-cover.jpg"
               alt="Cover of the 2019 conference Smarika"
               loading="lazy"
-              className="w-full h-40 object-cover object-top rounded-2xl shadow-2xl"
+              className="w-full h-40 object-cover object-top rounded-2xl shadow-2xl max-md:hidden"
             />
           </div>
         </div>
