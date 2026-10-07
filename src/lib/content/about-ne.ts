@@ -171,8 +171,8 @@ export const membersNe: Record<string, MemberNe> = {
       'रियलटर, दोभाषे र व्यवसायी; बी.ए., बी.एड.',
     ],
   },
-  'Rupa Gurung': {
-    name: 'रुपा गुरुङ',
+  'Rupa Konay Gurung': {
+    name: 'रुपा कोने गुरुङ',
     role: 'सचिवालय सचिव',
     location: 'दक्षिण कोरिया · रुपन्देही, नेपालबाट',
     summary: 'सांस्कृतिक संरक्षण र सामुदायिक सेवामा पन्ध्र वर्षको कार्य।',
@@ -206,15 +206,15 @@ export const membersNe: Record<string, MemberNe> = {
     summary: 'निवर्तमान अध्यक्ष, तमू सोसाइटी सिड्नी।',
     highlights: [],
   },
-  'Dinesh Gurung': {
-    name: 'दिनेश गुरुङ',
+  'Dinesh Konay Gurung': {
+    name: 'दिनेश कोने गुरुङ',
     role: 'परिषद् सदस्य',
     location: 'दोहा, कतार',
     summary: 'अध्यक्ष, तमू (गुरुङ) समाज कतार।',
     highlights: [],
   },
-  'Chandra B. Gurung': {
-    name: 'चन्द्र बि. गुरुङ',
+  'Chandra Plhe Gurung': {
+    name: 'चन्द्र प्ले गुरुङ',
     role: 'परिषद् सदस्य',
     location: 'पश्चिम सिक्किम, भारत',
     summary: 'कार्यकारी निर्देशक, सूर्य शिक्षा सदन फाउन्डेसन; अध्यक्ष, लायन्स क्लब अफ काठमाडौं।',

@@ -47,7 +47,7 @@ export const executives: LeadershipMember[] = [
     ],
   },
   {
-    name: 'Rupa Gurung',
+    name: 'Rupa Konay Gurung',
     role: 'Secretariat Secretary',
     image: '/images/team/rupa-gurung.jpg',
     location: 'South Korea · from Rupandehi, Nepal',
@@ -92,7 +92,7 @@ export const councilMembers: LeadershipMember[] = [
     highlights: [],
   },
   {
-    name: 'Dinesh Gurung',
+    name: 'Dinesh Konay Gurung',
     role: 'Council Member',
     image: '/images/team/dinesh-gurung.jpg',
     location: 'Doha, Qatar',
@@ -100,7 +100,7 @@ export const councilMembers: LeadershipMember[] = [
     highlights: [],
   },
   {
-    name: 'Chandra B. Gurung',
+    name: 'Chandra Plhe Gurung',
     role: 'Council Member',
     image: '/images/team/chandra-b-gurung.jpg',
     location: 'West Sikkim, India',
